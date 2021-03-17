@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>crud-jedis</artifactId>
+    <artifactId>project_redis_java</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -23,9 +23,8 @@
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
-            <version>3.5.1</version>
+            <version>3.5.2</version>
         </dependency>
-
     </dependencies>
 
 

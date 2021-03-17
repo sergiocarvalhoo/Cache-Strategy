@@ -1,4 +1,4 @@
-package com.ifpb.modelo;
+package com.cache.modelo;
 
 import java.time.LocalDate;
 
