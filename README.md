@@ -1,4 +1,4 @@
-## CRUD JAVA
+## A primitive Cache-Aside strategy (Lazy Loading) using Redis and PostgreSQL
 
 **This project is an example of a primitive Cache-Aside strategy (Lazy Loading) using Redis, PostgreSQL, Gson, JPA and JDK 15.0.2**
 
