@@ -21,6 +21,8 @@
  3. Check the networks:
     
     docker network inspect postgres-network
+
+    docker network inspect redis-network
     
  4. Download and run PostgresSQL docker container:
     
@@ -38,4 +40,4 @@
  
     docker pull redis
 
-    docker run --network redis-network --name redis-server -d redis
+    docker run --network redis-network -p 6379:6379 --name redis-server -d redis
