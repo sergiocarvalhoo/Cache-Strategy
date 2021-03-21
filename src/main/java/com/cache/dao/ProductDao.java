@@ -14,7 +14,7 @@ public class ProductDao {
         EntityManager entityManager = getEntityManager();
         try {
             entityManager.getTransaction().begin();
-            System.out.println("Salvando o Produto: " + product.toString());
+            System.out.println("Salvando o: " + product.toString() + " no PostgreSQL");
             if(product.getCodigo() == null) {
                 entityManager.persist(product);
             } else {
@@ -44,7 +44,6 @@ public class ProductDao {
             entityManager.close();
         }
     }
-
 
     public Product findById(String codigo) {
         EntityManager entityManager = getEntityManager();
