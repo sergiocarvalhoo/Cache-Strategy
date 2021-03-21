@@ -32,8 +32,11 @@ public class App {
 
         System.out.println("\n");
         cacheService.searchProduct("1111-1");
+        System.out.println("\n");
         cacheService.searchProduct("1111-2");
+        System.out.println("\n");
         cacheService.searchProduct("1111-2");
+        System.out.println("\n");
         cacheService.searchProduct("1111-4");
 
         System.out.println("\n");
