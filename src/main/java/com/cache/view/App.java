@@ -2,9 +2,8 @@ package com.cache.view;
 
 import com.cache.dao.ProductDao;
 import com.cache.model.Product;
+import com.cache.service.CacheService;
 import redis.clients.jedis.Jedis;
-
-// TODO: Refatorar criando classe para realizar o CRUD do objeto
 
 public class App {
 
@@ -16,35 +15,29 @@ public class App {
         // Testando conexão com o banco
         System.out.println(jedis.ping());
 
-        Product product1 = new Product("188HGFS","Teste","Comun", (float) 19.3);
-        Product product2 = new Product("18GHHGFS","Teste2222","Dois", (float) 53.3);
-        Product product3 = new Product("1767HHS","Tesdffdte2222","Três", (float) 26);
+        Product product1 = new Product("1111-1","Arroz","Comun", (float) 5.3);
+        Product product2 = new Product("1111-2","Carne","Gado", (float) 45.7);
+        Product product3 = new Product("1111-3","Feijão","Carioca", (float) 4.6);
+        Product product4 = new Product("1111-4","Macarrão","Parafuso", (float) 3.7);
+        Product product5 = new Product("1111-5","Batata","Doce", (float) 3.5);
 
         ProductDao productDAO = new ProductDao();
+        CacheService cacheService = new CacheService();
 
         productDAO.save(product1);
         productDAO.save(product2);
         productDAO.save(product3);
+        productDAO.save(product4);
+        productDAO.save(product5);
 
-        System.out.println("Produto encontrado: " + productDAO.findById("188HGFS").toString());
+        System.out.println("\n");
+        cacheService.searchProduct("1111-1");
+        cacheService.searchProduct("1111-2");
+        cacheService.searchProduct("1111-2");
+        cacheService.searchProduct("1111-4");
 
-        productDAO.delete("188HGFS");
-
-
-//        Biblioteca que será utilizada para converter Json <-> Object
-//        Gson gson = new Gson();
-//
-//        Salvando uma pessoa
-//        Pessoa pessoa = new Pessoa("111.111.111-01", "Paulo",
-//                LocalDate.of(1990,2,3));
-//        System.out.println(jedis.set(pessoa.getCpf(), gson.toJson(pessoa)));
-//
-//        Recuperando dados a partir de uma chave
-//        Pessoa pessoa1 = gson.fromJson(
-//                jedis.get("111.111.111-01"),
-//                Pessoa.class
-//        );
-//        System.out.println(pessoa1);
+        System.out.println("\n");
+        productDAO.delete("1111-4");
 
     }
 
