@@ -14,7 +14,7 @@ public class ProductDao {
         EntityManager entityManager = getEntityManager();
         try {
             entityManager.getTransaction().begin();
-            System.out.println("Salvando o: " + product.toString() + " no PostgreSQL");
+            System.out.println("Salvando = " + product.toString() + " no PostgreSQL");
             if(product.getCodigo() == null) {
                 entityManager.persist(product);
             } else {
@@ -34,7 +34,7 @@ public class ProductDao {
         try {
             entityManager.getTransaction().begin();
             Product product = entityManager.find(Product.class, codigo);
-            System.out.println("Excluindo os dados do Produto: " + product.toString());
+            System.out.println("Excluindo os dados do = " + product.toString() + " do PostgreSQL");
             entityManager.remove(product);
             entityManager.getTransaction().commit();
         } catch (Exception e){

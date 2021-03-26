@@ -16,10 +16,12 @@ public class CacheService {
 
     Integer ttl = 60;
 
-    public void searchProduct(String codigo){
-
+    public void testRedis(){
         // Testando conexão com o banco Redis
         System.out.println(jedis.ping());
+    }
+
+    public void searchProduct(String codigo){
 
         Product product = gson.fromJson(jedis.get(codigo), Product.class);
 
@@ -45,7 +47,4 @@ public class CacheService {
         }
 
     }
-
-
-
 }
