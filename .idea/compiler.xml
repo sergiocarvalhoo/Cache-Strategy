@@ -6,8 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="crud-jedis" />
-        <module name="project_redis_java" />
+        <module name="Project_III_Databases" />
       </profile>
     </annotationProcessing>
   </component>
