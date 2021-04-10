@@ -70,6 +70,22 @@ public class ClientDao {
         }
     }
 
+    public String setName() {
+        Scanner sc = new Scanner(System.in);
+        String nameClient;
+        System.out.println("Digite o nome que deseja atribuir ao Cliente: ");
+        nameClient = sc.nextLine();
+        return nameClient;
+    }
+
+    public String setCPF() {
+        Scanner sc = new Scanner(System.in);
+        String cpfClient;
+        System.out.println("Digite o CPF que deseja atribuir ao Cliente: ");
+        cpfClient = sc.nextLine();
+        return cpfClient;
+    }
+
     public List<Order> addProducts(){
         Scanner sc = new Scanner(System.in);
         String productID;
@@ -82,14 +98,17 @@ public class ClientDao {
         int amount;
         int x = 1;
         float price, product_total, total = 0;
+
         while (x == 1){
             System.out.println("Digite o código do Pedido que deseja atribuir ao Cliente: ");
             orderID = sc.nextLine();
+
             if (orderID != null) {
                 do {
                     System.out.println("Digite o código do Produto que deseja adicionar no Pedido: ");
                     productID = sc.nextLine();
                     product = productDao.findById(productID);
+
                     if (product != null) {
                         System.out.println("Digite a Quantidade do Produto que deseja adicionar no Pedido: ");
                         amount = Integer.parseInt(sc.nextLine());

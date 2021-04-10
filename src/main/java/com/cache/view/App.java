@@ -63,19 +63,19 @@ public class App {
 
 //        clientDao.addProducts();
 
-        Client client1 = new Client("André","111.111.111-11",clientDao.addProducts());
+        Client client1 = new Client(clientDao.setName(), clientDao.setCPF(),clientDao.addProducts());
 
         clientDao.create(client1);
 
         clientDao.read();
 
-        clientDao.update("111.111.111-11", "César");
-
-        clientDao.read();
-
-        clientDao.update("111.111.111-11", "Paulo");
-
-        clientDao.read();
+//        clientDao.update("111.111.111-11", "César");
+//
+//        clientDao.read();
+//
+//        clientDao.update("111.111.111-11", "Paulo");
+//
+//        clientDao.read();
 
 //        clientDao.delete("111.111.111-11");
 //
