@@ -21,13 +21,16 @@ public class CacheService {
         System.out.println(jedis.ping());
     }
 
-    public void searchProduct(String codigo){
+    public Product searchProduct(String codigo){
 
-        Product product = gson.fromJson(jedis.get(codigo), Product.class);
+        Product product;
+
+        product = gson.fromJson(jedis.get(codigo), Product.class);
 
         if (product != null){
             System.out.println("Produto encontrado e sendo retornado do Redis!");
             System.out.println(product);
+            return product;
         }
         else {
             product = productDAO.findById(codigo);
@@ -35,14 +38,21 @@ public class CacheService {
             if (product != null){
 
                 System.out.println("Produto encontrado e sendo retornado do PostgreSQl!");
+
                 System.out.println(product);
 
                 System.out.println(jedis.setex(product.getCodigo(),ttl, gson.toJson(product)) +
                         " O Produto foi armazenado no Redis por 60 Segundos !");
+
+                return product;
             }
             else {
                 System.out.println("O produto não foi encontrado nem no Redis nem no PostgreSQl, " +
                         "antes de realizar a pesquisa, certifique-se que o Produto existe!");
+
+                System.out.println(product);
+
+                return product;
             }
         }
 
